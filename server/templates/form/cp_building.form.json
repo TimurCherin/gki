@@ -1,0 +1,33 @@
+{
+    "schema": {
+        
+        "cp_umuni_id": {
+            "type": "Text",
+            "ua": "ID UMUNI"
+        },
+        "cp_year": {
+            "type": "Text",
+            "ua": "Рік будівництва"
+        },
+        "cp_date_en_audit": {
+            "type": "DatePicker",
+            "ua": "Дата проведення останнього енергоаудиту"
+        },
+        "cp_certificate": {
+            "type": "Text",
+            "ua": "Сертифікат енергоефективності будівлі",
+            "help": "Вкажіть посилання"
+        },
+        "cp_pkd": {
+            "type": "Autocomplete",
+            "data": "customer_name",
+            "add": {
+                "model": "crm_acc.crm_account",
+                "ua": "Додати",
+                "form": "account_light.form"
+            },
+            "ua": "Замовник ПКД"
+        }
+    },
+    "label_style": "vertical"
+}

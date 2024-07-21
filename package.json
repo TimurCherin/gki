@@ -1,0 +1,64 @@
+{
+  "name": "@opengis/starter",
+  "version": "0.1.0",
+  "description": "This project was bootstrapped with Fastify-CLI.",
+  "main": "app.js",
+  "type": "module",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node --test test/**/*.test.js",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "build": "vite build && npm run build:server && vite build admin",
+    "build:server": "tsc --build ./server",
+    "admin": "cross-env NODE_ENV=admin npm run start",
+    "prod": "cross-env NODE_ENV=production npm run start",
+    "start": "node server",
+    "dev": "fastify start -w -l info -P server/app.js"
+  },
+  "keywords": [],
+  "author": "Softpro",
+  "license": "ISC",
+  "dep": {
+    "@opengis/fastify-auth": "^1.0.12",
+    "@opengis/fastify-file": "^1.0.17"
+  },
+  "dependencies": {
+    "@fastify/cookie": "^9.2.0",
+    "@fastify/sensible": "^5.0.0",
+    "@fastify/session": "^10.5.0",
+    "@fastify/url-data": "^5.4.0",
+    "@opengis/fastify-table": "^1.0.45",
+    "@opengis/v3-crm": "^0.0.28",
+    "@opengis/v3-filter": "^0.0.12",
+    "@tsconfig/node20": "^20.1.2",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "@vue/tsconfig": "^0.5.1",
+    "close-with-grace": "^1.3.0",
+    "cross-env": "^7.0.3",
+    "fastify": "^4.26.1",
+    "fastify-plugin": "^4.0.0",
+    "maplibre-gl": "^4.5.0",
+    "v3-core-ui": "^0.1.93",
+    "vike": "^0.4.165",
+    "vike-vue": "^0.6.3",
+    "vite": "^5.1.4",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@panzoom/panzoom": "^4.5.1",
+    "@vue/eslint-config-prettier": "^9.0.0",
+    "@vue/eslint-config-typescript": "^12.0.0",
+    "eslint": "^8.49.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-vue": "^9.17.0",
+    "mermaid": "^10.8.0",
+    "vitepress": "^1.0.0-rc.44",
+    "vitepress-plugin-mermaid": "^2.0.16",
+    "vitepress-plugin-tabs": "^0.5.0",
+    "vitepress-sidebar": "^1.19.0"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "noEmit": true,
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "exclude": [
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "**/*.spec.tsx",
+    "**/*.test.tsx",
+    "jest.config.ts",
+    "src/**/__tests__/*"
+  ],
+  "include": [
+    "env.d.ts",
+    "src/**/*",
+    "src/**/*.vue",
+    "dist/*",
+    "routes.config.jss",
+    "vueform.config.ts"
+  ],
+}

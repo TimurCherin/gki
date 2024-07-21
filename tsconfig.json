@@ -1,0 +1,21 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    },
+  ],
+  "exclude": ["**/tests/*.test.ts"],
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    // использование более строгого вывода типов для свойств данных в `this`
+    "strict": true,
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "types": ["vitest/globals"]
+  }
+}

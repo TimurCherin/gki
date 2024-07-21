@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map[]>
+<Map buffer-size="128" maximum-extent="-20037508.34,-20037508.34,20037508.34,20037508.34" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+  <Parameters>
+    <Parameter name="format"><![CDATA[png]]></Parameter>
+    <Parameter name="bounds">22.21886234574473,44.39063304354448,39.488618053500204,52.25437909874123</Parameter>
+    <Parameter name="maximum-extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
+    <Parameter name="center">0,0,2</Parameter>
+    <Parameter name="minzoom">1</Parameter>
+    <Parameter name="maxzoom">25</Parameter>
+  </Parameters>
+  <Style filter-mode="first" name="line_niv-fill">
+    <Rule>
+      <MaxScaleDenominator>25000000</MaxScaleDenominator>
+      <Filter><![CDATA[([niv_class_n] = 'II')]]></Filter>
+      <LineSymbolizer stroke="#ffffff" stroke-width="3" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>25000000</MaxScaleDenominator>
+      <Filter><![CDATA[([niv_class_n] = 'I')]]></Filter>
+      <LineSymbolizer stroke="#ffffff" stroke-width="3" />
+    </Rule>
+  </Style>
+  <Style filter-mode="first" name="line_niv">
+    <Rule>
+      <MaxScaleDenominator>25000000</MaxScaleDenominator>
+      <Filter><![CDATA[([niv_class_n] = 'II')]]></Filter>
+      <LineSymbolizer stroke="#0000ff" stroke-width="4" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>25000000</MaxScaleDenominator>
+      <Filter><![CDATA[([niv_class_n] = 'I')]]></Filter>
+      <LineSymbolizer stroke="#ff0000" stroke-width="4" />
+    </Rule>
+  </Style>
+  <Layer maximum-scale-denominator="25000000" minimum-scale-denominator="100" name="line_niv" srs="+proj=longlat +datum=WGS84 +no_defs ">
+    <StyleName><![CDATA[line_niv]]></StyleName>
+    <StyleName><![CDATA[line_niv-fill]]></StyleName>
+    <Datasource>
+      <Parameter name="simplify_geometries">true</Parameter>
+      <Parameter name="type"><![CDATA[postgis]]></Parameter>
+      <Parameter name="extent"><![CDATA[22.21886234574473,44.39063304354448,39.488618053500204,52.25437909874123]]></Parameter>
+      <Parameter name="host"><![CDATA[localhost]]></Parameter>
+      <Parameter name="table"><![CDATA[(select * from dgm.dgm_niv) as dp]]></Parameter>
+      <Parameter name="dbname"><![CDATA[geo_dgm_gki]]></Parameter>
+      <Parameter name="geometry_field"><![CDATA[geom]]></Parameter>
+      <Parameter name="port"><![CDATA[5432]]></Parameter>
+      <Parameter name="user"><![CDATA[postgres]]></Parameter>
+      <Parameter name="password"><![CDATA[1111]]></Parameter>
+    </Datasource>
+  </Layer>
+</Map>

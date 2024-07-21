@@ -1,0 +1,45 @@
+stages:
+  - deploy
+  - pull
+
+dev:
+  stage: deploy
+  tags:
+    - dev-docker
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - cd /data/server/starter
+    - git pull origin dev
+    - rm -R node_modules || true
+    - rm -R dist || true
+    - docker build -t starter-dev-$CI_COMMIT_SHA .
+    - |
+      CONTAINERS=$(docker ps -aqf "name=starter-dev-*")
+      if [ -n "$CONTAINERS" ]; then
+        echo "Stopping and removing containers: $CONTAINERS"
+        docker stop $CONTAINERS
+        docker rm $CONTAINERS
+      else
+        echo "No containers found to stop and remove."
+      fi
+    - docker run -d --name starter-dev-$CI_COMMIT_SHA -p 3006:3000 starter-dev-$CI_COMMIT_SHA
+  only:
+    - dev
+
+# latest-253:
+#   stage: pull
+#   tags:
+#     - cdn
+#   variables:
+#     GIT_STRATEGY: none
+#   script:
+#     - cd /data/softpro/server/$CI_PROJECT_NAME && git pull origin dev
+#     - npm install
+#     - rm -R ./docs/.vitepress/dist/* || true
+#     - npm run docs:build
+#     - rm -rf /data/softpro/apidocs/$CI_PROJECT_NAME || true
+#     - mkdir -p /data/softpro/apidocs/$CI_PROJECT_NAME
+#     - cp -R ./docs/.vitepress/dist/* /data/softpro/apidocs/$CI_PROJECT_NAME
+#   only:
+#     - dev

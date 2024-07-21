@@ -1,0 +1,44 @@
+{
+    "table": "gis.dataset",
+    "key": "dataset_id",
+    "columns": [
+        {
+            "name": "dataset_id",
+            "title": "22"
+        },
+        {
+            "name": "dataset_name",
+            "title": "dataset_name"
+        }
+    ],
+    "filters": [
+        {
+            "ua": "Будівля",
+            "data": "cp_building",
+            "name": "cp_build_id",
+            "type": "Text"
+        },
+        {
+            "ua": "Рік будівництва",
+            "name": "cp_year",
+            "type": "Text"
+        },
+        {
+            "ua": "Замовник ПКД",
+            "data": "customer_name",
+            "name": "cp_pkd",
+            "type": "Text"
+        },
+        {
+            "ua": "Наявність енергоаудиту",
+            "name": "cp_date_en_audit",
+            "type": "Date"
+        },
+        {
+            "ua": "Знак сертифікату",
+            "data": "cp_certificate_mark",
+            "name": "cp_certificate_mark",
+            "type": "Check"
+        }
+    ]
+}

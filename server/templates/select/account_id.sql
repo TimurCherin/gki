@@ -1,0 +1,1 @@
+select account_id, account_name from crm_acc.crm_account
